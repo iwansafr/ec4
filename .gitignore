@@ -109,6 +109,7 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 .nb-gradle/
+images/
 
 # Sublime Text
 *.tmlanguage.cache
