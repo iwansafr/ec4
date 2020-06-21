@@ -5,6 +5,8 @@ class Admin extends BaseController
 {
 	public function index()
 	{
-		return view('pages/home');
+		$data = $this->esg->config_template;
+
+		return view('pages/home',['data'=>$data]);
 	}
 }

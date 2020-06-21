@@ -13,9 +13,8 @@
 	}
 	?>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed <?php echo $data['body-small-text']; ?>">
 <div class="wrapper">
-
   <!-- Navbar -->
   <?php echo $this->include('layout/navbar') ?>
   <!-- /.navbar -->
@@ -43,9 +42,13 @@
   </footer>
 
   <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
+  <form action="" method="post">
+    <aside class="control-sidebar control-sidebar-dark">
+        
+      <!-- Control sidebar content goes here -->
+      <button type="submit" name="save_config" value="true" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Save</button>
+    </aside>
+  </form>
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->

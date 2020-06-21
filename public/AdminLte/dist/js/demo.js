@@ -40,14 +40,15 @@
   ]
 
   $container.append(
-    '<h5>Customize AdminLTE</h5><hr class="mb-2"/>'
+    '<h5>Customize Template</h5><hr class="mb-2"/>'
   )
 
   var $no_border_checkbox = $('<input />', {
     type   : 'checkbox',
     value  : 1,
     checked: $('.main-header').hasClass('border-bottom-0'),
-    'class': 'mr-1'
+    'class': 'mr-2',
+    'name' : 'no-navbar-border'
   }).on('click', function () {
     if ($(this).is(':checked')) {
       $('.main-header').addClass('border-bottom-0')
@@ -62,7 +63,8 @@
     type   : 'checkbox',
     value  : 1,
     checked: $('body').hasClass('text-sm'),
-    'class': 'mr-1'
+    'class': 'mr-1',
+    'name' : 'body-small-text'
   }).on('click', function () {
     if ($(this).is(':checked')) {
       $('body').addClass('text-sm')
@@ -77,7 +79,8 @@
     type   : 'checkbox',
     value  : 1,
     checked: $('.main-header').hasClass('text-sm'),
-    'class': 'mr-1'
+    'class': 'mr-1',
+    'name' : 'navbar-small-text'
   }).on('click', function () {
     if ($(this).is(':checked')) {
       $('.main-header').addClass('text-sm')
@@ -92,7 +95,8 @@
     type   : 'checkbox',
     value  : 1,
     checked: $('.nav-sidebar').hasClass('text-sm'),
-    'class': 'mr-1'
+    'class': 'mr-1',
+    'name' : 'sidebar-nav-small'
   }).on('click', function () {
     if ($(this).is(':checked')) {
       $('.nav-sidebar').addClass('text-sm')
@@ -107,7 +111,8 @@
     type   : 'checkbox',
     value  : 1,
     checked: $('.main-footer').hasClass('text-sm'),
-    'class': 'mr-1'
+    'class': 'mr-1',
+    'name' : 'footer-small-text'
   }).on('click', function () {
     if ($(this).is(':checked')) {
       $('.main-footer').addClass('text-sm')
@@ -122,7 +127,8 @@
     type   : 'checkbox',
     value  : 1,
     checked: $('.nav-sidebar').hasClass('nav-flat'),
-    'class': 'mr-1'
+    'class': 'mr-1',
+    'name' : 'sidebar-nav-flat-style'
   }).on('click', function () {
     if ($(this).is(':checked')) {
       $('.nav-sidebar').addClass('nav-flat')
@@ -137,7 +143,8 @@
     type   : 'checkbox',
     value  : 1,
     checked: $('.nav-sidebar').hasClass('nav-legacy'),
-    'class': 'mr-1'
+    'class': 'mr-1',
+    'name' : 'sidebar-nav-legacy-style'
   }).on('click', function () {
     if ($(this).is(':checked')) {
       $('.nav-sidebar').addClass('nav-legacy')
