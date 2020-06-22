@@ -1,9 +1,15 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<?php
+$esg = config('Esg');
+$appearance = $esg->appearance;
+$sidebar_type = !empty($appearance['sidebar_type']) ? $appearance['sidebar_type'] : '';
+$brand_color = !empty($appearance['brand_color']) ? $appearance['brand_color'] : '';
+?>
+<aside class="main-sidebar <?php echo $sidebar_type ?> elevation-4">
   <!-- Brand Logo -->
-  <a href="index3.html" class="brand-link">
-    <img src="/AdminLte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+  <a href="index3.html" class="brand-link" style="background-color: <?php echo $brand_color; ?>">
+    <img src="/images/small-icon.png" alt="esoftgreat" class="brand-image img-circle elevation-3"
          style="opacity: .8">
-    <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <span class="brand-text font-weight-dark">esoftgreat</span>
   </a>
 
   <!-- Sidebar -->
