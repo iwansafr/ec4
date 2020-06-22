@@ -5,9 +5,8 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('welcome_message');
+		$data = $this->esg->config_template;
+		return view('pages/home',['data'=>$data]);
 	}
-
-	//--------------------------------------------------------------------
 
 }

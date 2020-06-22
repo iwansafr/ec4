@@ -24,6 +24,7 @@ class Content extends BaseController
 				'js' => 'data_table'
 			]
 		];
+		$data['data'] = $this->esg->config_template;
 		$data['content'] = $this->content->findAll();
 		return view('content/list',$data);
 	}

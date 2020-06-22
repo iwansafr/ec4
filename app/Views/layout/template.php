@@ -11,9 +11,13 @@
 	}else{
 		echo $this->include('layout/css');
 	}
+  if (!empty($extra_css))
+  {
+    echo $this->include($extra_css);
+  }
 	?>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed <?php echo $data['body-small-text']; ?>">
+<body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
   <?php echo $this->include('layout/navbar') ?>
@@ -42,13 +46,11 @@
   </footer>
 
   <!-- Control Sidebar -->
-  <form action="" method="post">
-    <aside class="control-sidebar control-sidebar-dark">
-        
-      <!-- Control sidebar content goes here -->
-      <button type="submit" name="save_config" value="true" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Save</button>
-    </aside>
-  </form>
+  <aside class="control-sidebar control-sidebar-dark">
+  </aside>
+  <?php 
+  // $this->include('layout/control_sidebar');
+  ?>
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
@@ -59,6 +61,10 @@ if (!empty($config['js']))
 	echo $this->include('layout/'.$config['js'].'_js');
 }else{
 	echo $this->include('layout/js');
+}
+if (!empty($extra_js))
+{
+  echo $this->include($extra_js);
 }
 ?>
 </body>

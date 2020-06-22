@@ -3,10 +3,13 @@ namespace App\Controllers;
 
 class Admin extends BaseController
 {
+	public function __construct()
+	{
+		// dd($this->name);
+	}
 	public function index()
 	{
-		$data = $this->esg->config_template;
-
-		return view('pages/home',['data'=>$data]);
+		return view('pages/home');
 	}
+	
 }
