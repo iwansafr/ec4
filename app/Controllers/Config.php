@@ -12,17 +12,16 @@ class Config extends BaseController
 	public function __construct()
 	{
 		$this->config = new ConfigModel();
+		
 	}
 	public function index()
 	{
+		// $this->cachePage(300);
+		$parser = \Config\Services::parser();
 		return view('config/index',
 			[
 				'extra_css'=>'config/config_css',
 				'extra_js'=>'config/config_js','data',
-				'data'=>
-				[
-					'appearance'=>$this->config->get_config('appearance'),
-				]
 			]
 		);
 	}
@@ -34,13 +33,7 @@ class Config extends BaseController
 	public function save()
 	{
 		$status = $this->config->save_config($this->request->getPost());
-		if($status)
-		{
-			redirect()->back()->with('status',$status['status']);
-			return redirect()->back()->with('msg',$status['msg']);
-		}else{
-			redirect()->back()->with('status',$status['status']);
-			return redirect()->back()->with('msg',$status['msg']);
-		}
+		redirect()->back()->with('status',$status['status']);
+		return redirect()->back()->with('msg',$status['msg']);
 	}
 }

@@ -1,4 +1,8 @@
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<?php
+$esg = config('Esg');
+$appearance = $esg->appearance;
+?>
+<nav class="main-header navbar navbar-expand <?php echo $appearance['navbar_type'] ?> <?php echo $appearance['navbar_type'] ?>" style="background-color: <?php echo $appearance['navbar_color'] ?>">
   <!-- Left navbar links -->
   <ul class="navbar-nav">
     <li class="nav-item">

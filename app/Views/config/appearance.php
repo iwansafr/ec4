@@ -1,4 +1,9 @@
+<?php
+$esg = config('Esg');
+$appearance = $esg->appearance;
+?>
 <?php msg(session('status'),session('msg')) ?>
+<?php $navbar_color = !empty($appearance['navbar_color']) ? $appearance['navbar_color'] : '';?>
 <div class="card card-primary card-outline">
   <form action="" method="post">
 	  <div class="card-header">
@@ -10,19 +15,31 @@
 					<div class="form-group">
 						<label>Navbar Color</label>
 						<div class="input-group my-colorpicker2 colorpicker-element" data-colorpicker-id="2">
-              <input type="text" class="form-control" name="navbar_color" data-original-title="" title="" value="<?php echo !empty($data['appearance']['navbar_color']) ? $data['appearance']['navbar_color'] : ''; ?>">
+              <input type="text" class="form-control" name="navbar_color" data-original-title="" title="" value="<?php echo $navbar_color;?>">
 
               <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-square" style="color: <?php echo !empty($data['appearance']['navbar_color']) ? $data['appearance']['navbar_color'] : ''; ?>;"></i></span>
+                <span class="input-group-text"><i class="fas fa-square" style="color: <?php echo $navbar_color;?>;"></i></span>
               </div>
             </div>
 					</div>
 					<div class="form-group">
 						<label>Navbar Type</label>
-						<select name="navbar_type" class="form-control">
-							<option value="navbar-light">Light</option>
-							<option value="navbar-dark">Dark</option>
-						</select>
+						<?php
+						$options =
+						[
+							'name'=>'navbar_type',
+							'class'=>'form-control',
+							'options' => 
+							[
+								'navbar-light'=>'Light',
+								'navbar-dark'=>'Dark'
+							],
+						];
+						if(!empty($appearance['navbar_type']))
+						{
+							$options['selected'] = $appearance['navbar_type'];
+						}
+						echo form_dropdown($options) ?>
 					</div>
 				</div>
       </div>
