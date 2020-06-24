@@ -18,6 +18,7 @@ class Config extends BaseController
 	{
 		// $this->cachePage(300);
 		// $parser = \Config\Services::parser();
+		$this->esg->add_breadcumb(['Config'=>'/config']);
 		return view('config/index',
 			[
 				'extra_css'=>'config/config_css',
