@@ -17,7 +17,7 @@ class Config extends BaseController
 	public function index()
 	{
 		// $this->cachePage(300);
-		$parser = \Config\Services::parser();
+		// $parser = \Config\Services::parser();
 		return view('config/index',
 			[
 				'extra_css'=>'config/config_css',

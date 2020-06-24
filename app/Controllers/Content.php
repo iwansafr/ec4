@@ -7,9 +7,11 @@ class Content extends BaseController
 {
 
 	protected $content;
+	protected $esg;
 	public function __construct()
 	{
 		$this->content = new ContentModel();
+		$this->esg = new \App\Models\Esg();
 	}
 
 	public function index()
