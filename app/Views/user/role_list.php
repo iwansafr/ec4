@@ -19,9 +19,9 @@
       </tr>
       </thead>
       <tbody>
-      	<?php if (!empty($role)): ?>
+      	<?php if (!empty($data)): ?>
       		<?php $i = 1; ?>
-      		<?php foreach ($role as $key => $value): ?>
+      		<?php foreach ($data as $key => $value): ?>
       			<tr>
       				<td><?php echo $i++; ?></td>
       				<td><?php echo $value['title'] ?></td>

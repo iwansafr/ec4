@@ -33,4 +33,26 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
+
+	// User Role Validation
+	public $user_role = [
+		'title'=> 'required|is_unique[user_role.title]'
+	];
+
+	public $user_role_errors = [
+		'title'=> [
+			'is_unique' => 'Sorry. That Title Has Been Taken. Please Choose Another'
+		]
+	];
+
+	//User Validation
+	public $user = [
+		'username'=> 'required|is_unique[user.username]'
+	];
+
+	public $user_errors = [
+		'username'=> [
+			'is_unique' => 'Sorry. That Username Has Been Taken. Please Choose Another'
+		]
+	];
 }

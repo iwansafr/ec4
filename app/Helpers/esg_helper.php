@@ -25,7 +25,13 @@ if(!function_exists('msg'))
 			<div class="alert alert-<?php echo $status;?> alert-dismissible">
 	      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 	      <h5><i class="icon fas <?php echo $fa; ?>"></i> Alert!</h5>
-	      <?php echo $msg; ?>
+	      <?php if (is_array($msg)): ?>
+	      	<?php foreach ($msg as $key => $value): ?>
+	      		<?php echo $value ?>
+	      	<?php endforeach ?>
+	      <?php else: ?>
+	      	<?php echo $msg; ?>
+	      <?php endif ?>
 	    </div>
 			<?php
 		}

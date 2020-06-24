@@ -2,8 +2,9 @@
   <div class="card-header">
     <h3 class="card-title">Add User Role</h3>
   </div>
-  <form role="form">
+  <form role="form" method="post" action="">
     <div class="card-body">
+      <?php msg(session('status'),session('msg')) ?>
       <div class="form-group">
         <label>Title</label>
         <input type="text" name="title" class="form-control" placeholder="Enter user role title" required>
