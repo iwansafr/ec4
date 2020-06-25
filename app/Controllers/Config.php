@@ -34,7 +34,11 @@ class Config extends BaseController
 	public function save()
 	{
 		$status = $this->config->save_config($this->request->getPost());
-		redirect()->back()->with('status',$status['status']);
-		return redirect()->back()->with('msg',$status['msg']);
+		return redirect()->back()->with('status',[
+			'config' => [
+				'status' => $status['status'],
+				'msg' => $status['msg']
+			]
+		]);
 	}
 }
