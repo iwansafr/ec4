@@ -1,8 +1,10 @@
 <?php
 $esg = config('Esg');
 $appearance = $esg->appearance;
+$navbar_type = !empty($appearance['navbar_type']) ? $appearance['navbar_type'] : '';
+$navbar_color = !empty($appearance['navbar_color']) ? $appearance['navbar_color'] : '';
 ?>
-<nav class="main-header navbar navbar-expand <?php echo $appearance['navbar_type'] ?> <?php echo $appearance['navbar_type'] ?>" style="background-color: <?php echo $appearance['navbar_color'] ?>">
+<nav class="main-header navbar navbar-expand <?php echo $navbar_type ?> <?php echo $navbar_type ?>" style="background-color: <?php echo $navbar_color ?>">
   <!-- Left navbar links -->
   <ul class="navbar-nav">
     <li class="nav-item">
