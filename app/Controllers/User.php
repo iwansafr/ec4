@@ -31,26 +31,26 @@ class User extends BaseController
 			]
 		);
 	}
-	public function role_edit_save($id)
+	public function role_edit_save($id = 0)
 	{
 		$validation = \Config\Services::validation();
-		if($validation->run($this->request->getPost(),'user_role') == FALSE)
+		if($validation->run($this->request->getPost(),'user_role') == TRUE)
 		{
-			dd('sukses');
 			if(empty($id))
 			{
 				$status = $this->UserModel->role_edit_save($this->request->getPost());
 			}else{
 				$status = $this->UserModel->role_edit_save($this->request->getPost(),$id);
 			}
-			redirect()->back()->with('status',$status['status']);
-			return redirect()->back()->with('msg',$status['msg']);
 		}else{
-			dd('gagal');
-			$status = ['status'=>'danger','msg'=>$validation->getErrors()];
-			redirect()->back()->with('status',$status['status']);
-			return redirect()->back()->with('msg',$status['msg']);
+			$status = ['status'=>'danger','msg'=>$validation->getErrors()['title']];
 		}
+		return redirect()->back()->with('status',[
+			'role_edit' => [
+				'status'=>$status['status'],
+				'msg'=>$status['msg']
+			]
+		]);
 	}
 
 	public function role_delete($id)
@@ -58,8 +58,12 @@ class User extends BaseController
 		$status = $this->UserModel->setTable('user_role')->delete($id);
 		if($status)
 		{
-			redirect()->back()->with('status','success');
-			return redirect()->back()->with('msg','Data Deleted Successfully');	
+			return redirect()->back()->with('status',[
+				'role_list' => [
+					'status'=>'success',
+					'msg'=>'Data deleted successfully'
+				]
+			]);
 		}
 	}
 	public function role_multi_delete()
@@ -67,8 +71,12 @@ class User extends BaseController
 		$status = $this->UserModel->setTable('user_role')->delete($this->request->getPost('del_row'));
 		if($status)
 		{
-			redirect()->back()->with('status','success');
-			return redirect()->back()->with('msg','Data Deleted Successfully');	
+			return redirect()->back()->with('status',[
+				'role_list' => [
+					'status'=>'success',
+					'msg'=>'Data deleted successfully'
+				]
+			]);
 		}
 	}
 	public function role_detail($id)

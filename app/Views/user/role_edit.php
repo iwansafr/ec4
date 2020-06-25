@@ -4,7 +4,13 @@
   </div>
   <form role="form" method="post" action="">
     <div class="card-body">
-      <?php msg(session('status'),session('msg')) ?>
+      <?php
+      if(!empty(session('status')['role_edit']))
+      {
+        $status = session('status')['role_edit'];
+        msg($status['status'],$status['msg']);
+      }
+      ?>
       <div class="form-group">
         <label>Title</label>
         <input type="text" name="title" class="form-control" placeholder="Enter user role title" required>

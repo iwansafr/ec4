@@ -6,6 +6,7 @@
 <script src="/AdminLte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="/AdminLte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="/AdminLte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="/AdminLte/plugins/toastr/toastr.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/AdminLte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->

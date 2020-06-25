@@ -18,7 +18,7 @@ class User extends Model
 	// 	$this->setDate(true);
 	// }
 
-	public function role_edit_save($post,$id)
+	public function role_edit_save($post,$id = 0)
 	{
 		$this->table = 'user_role';
 		$this->title = 'User Role';

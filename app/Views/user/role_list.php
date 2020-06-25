@@ -3,6 +3,13 @@
     <h3 class="card-title">Role Data</h3>
   </div>
   <div class="card-body">
+    <?php
+    if(!empty(session('status')['role_list']))
+    {
+      $status = session('status')['role_list'];
+      msg($status['status'],$status['msg']);
+    }
+    ?>
     <form action="/user/role/multi_delete" method="post">
       <table class="data_table table table-bordered table-striped">
         <thead>

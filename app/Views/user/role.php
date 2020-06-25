@@ -2,6 +2,8 @@
 
 <?php $this->section('content') ?>
 <div class="row">
+	<div class="col-md-12">
+	</div>
   <div class="col-md-3">
     <?php echo $this->include('user/role_edit') ?>
   </div>
