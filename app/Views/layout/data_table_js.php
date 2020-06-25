@@ -11,6 +11,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="/AdminLte/dist/js/demo.js"></script>
 <!-- page script -->
+<script src="/assets/js/script.js"></script>
 <script>
   $(function () {
     $('.data_table').DataTable({

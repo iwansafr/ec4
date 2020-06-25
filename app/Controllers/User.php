@@ -12,7 +12,7 @@ class User extends BaseController
 	}
 	public function index()
 	{
-		return view('page/home');
+		return view('pages/home');
 	}
 	public function role()
 	{
@@ -43,5 +43,9 @@ class User extends BaseController
 			redirect()->back()->with('status',$status['status']);
 			return redirect()->back()->with('msg',$status['msg']);
 		}
+	}
+	public function role_delete()
+	{
+
 	}
 }

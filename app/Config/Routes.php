@@ -32,7 +32,10 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // $routes->get('/', 'Admin::index');
 $routes->post('/config','Config::save');
-$routes->post('/user/role','User::role_edit_save');
+$routes->group('user',function($routes){
+	$routes->post('role','User::role_edit_save');
+	$routes->delete('role/delete','User::role_delete');
+});
 
 /**
  * --------------------------------------------------------------------
