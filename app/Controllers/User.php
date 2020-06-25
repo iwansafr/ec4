@@ -44,8 +44,22 @@ class User extends BaseController
 			return redirect()->back()->with('msg',$status['msg']);
 		}
 	}
-	public function role_delete()
+	public function role_delete($id)
 	{
-
+		$status = $this->UserModel->setTable('user_role')->delete($id);
+		if($status)
+		{
+			redirect()->back()->with('status','success');
+			return redirect()->back()->with('msg','Data Deleted Successfully');	
+		}
+	}
+	public function role_multi_delete()
+	{
+		$status = $this->UserModel->setTable('user_role')->delete($this->request->getPost('del_row'));
+		if($status)
+		{
+			redirect()->back()->with('status','success');
+			return redirect()->back()->with('msg','Data Deleted Successfully');	
+		}
 	}
 }

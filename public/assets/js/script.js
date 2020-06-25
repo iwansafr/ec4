@@ -6,4 +6,7 @@ $(document).ready(function(){
 	    $(this).prop('checked', checkedStatus);
 	  });
 	});
+	$(document).ready(function(){
+	  $('[data-toggle="tooltip"]').tooltip(); 
+	});
 });

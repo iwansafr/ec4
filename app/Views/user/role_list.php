@@ -3,7 +3,7 @@
     <h3 class="card-title">Role Data</h3>
   </div>
   <div class="card-body">
-    <form action="/user/role/delete" method="post">
+    <form action="/user/role/multi_delete" method="post">
       <table class="data_table table table-bordered table-striped">
         <thead>
         <tr>
@@ -29,7 +29,7 @@
         				<td><?php echo $value['level'] ?></td>
         				<td><?php echo $value['description'] ?></td>
         				<td>
-      					 <input type="checkbox" class="del_check" name="del_row[]"> <i class="fa fa-trash"></i>
+      					 <input type="checkbox" class="del_check" name="del_row[]" value="<?php echo $value['id'] ?>"> <a href="/user/role/delete/<?php echo $value['id'];?>" data-toggle="tooltip" title="delete <?php echo $value['title'];?>" class="btn btn-default btn-sm"><i class="fa fa-trash"></i></a>
         				</td>
         			</tr>
         		<?php endforeach ?>

@@ -33,8 +33,11 @@ $routes->setAutoRoute(true);
 // $routes->get('/', 'Admin::index');
 $routes->post('/config','Config::save');
 $routes->group('user',function($routes){
+	$routes->add('role','User::role');
 	$routes->post('role','User::role_edit_save');
-	$routes->delete('role/delete','User::role_delete');
+	$routes->post('role/multi_delete','User::role_multi_delete');
+	// $routes->delete('role/delete','User::role_delete');
+	$routes->add('role/delete/(:num)','User::role_delete/$1');
 });
 
 /**
