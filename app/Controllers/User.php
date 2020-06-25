@@ -21,6 +21,7 @@ class User extends BaseController
 		return view('user/role',
 			[
 				'extra_css'=>'config/config_css',
+				'extra_js'=>'user/user_role_js',
 				'config' => 
 				[
 					'css' => 'data_table',
@@ -30,20 +31,28 @@ class User extends BaseController
 			]
 		);
 	}
-	public function role_edit_save()
+	public function role_edit_save($id)
 	{
 		$validation = \Config\Services::validation();
 		if($validation->run($this->request->getPost(),'user_role') == FALSE)
 		{
-			$status = ['status'=>'danger','msg'=>$validation->getErrors()];
+			dd('sukses');
+			if(empty($id))
+			{
+				$status = $this->UserModel->role_edit_save($this->request->getPost());
+			}else{
+				$status = $this->UserModel->role_edit_save($this->request->getPost(),$id);
+			}
 			redirect()->back()->with('status',$status['status']);
 			return redirect()->back()->with('msg',$status['msg']);
 		}else{
-			$status = $this->UserModel->role_edit_save($this->request->getPost(),$this->request->getGet('id'));
+			dd('gagal');
+			$status = ['status'=>'danger','msg'=>$validation->getErrors()];
 			redirect()->back()->with('status',$status['status']);
 			return redirect()->back()->with('msg',$status['msg']);
 		}
 	}
+
 	public function role_delete($id)
 	{
 		$status = $this->UserModel->setTable('user_role')->delete($id);
@@ -61,5 +70,10 @@ class User extends BaseController
 			redirect()->back()->with('status','success');
 			return redirect()->back()->with('msg','Data Deleted Successfully');	
 		}
+	}
+	public function role_detail($id)
+	{
+		$data = $this->UserModel->setTable('user_role')->find($id);
+		return json_encode($data);
 	}
 }

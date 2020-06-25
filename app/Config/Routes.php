@@ -35,6 +35,8 @@ $routes->post('/config','Config::save');
 $routes->group('user',function($routes){
 	$routes->add('role','User::role');
 	$routes->post('role','User::role_edit_save');
+	$routes->post('role/(:num)','User::role_edit_save/$1');
+	$routes->add('role/detail/(:num)','User::role_detail/$1');
 	$routes->post('role/multi_delete','User::role_multi_delete');
 	// $routes->delete('role/delete','User::role_delete');
 	$routes->add('role/delete/(:num)','User::role_delete/$1');

@@ -11,6 +11,12 @@ class User extends Model
 	protected $allowedFields = ['id','user_role_id','username','password','image','status'];
 	protected $title = 'user';
 	protected $useTimestamps = true;
+	protected $date = true;
+
+	// public function __construct()
+	// {
+	// 	$this->setDate(true);
+	// }
 
 	public function role_edit_save($post,$id)
 	{
