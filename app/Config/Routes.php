@@ -41,7 +41,13 @@ $routes->group('user',function($routes){
 	// $routes->delete('role/delete','User::role_delete');
 	$routes->add('role/delete/(:num)','User::role_delete/$1');
 });
+
 $routes->add('menu','Menu::index');
+$routes->add('menu/delete/(:num)','Menu::menu_delete/$1');
+$routes->add('menu/detail/(:num)','Menu::detail/$1');
+$routes->post('menu/multi_delete/','Menu::menu_multi_delete');
+$routes->post('menu','Menu::menu_save');
+$routes->post('menu/(:num)','Menu::menu_save/$1');
 
 /**
  * --------------------------------------------------------------------

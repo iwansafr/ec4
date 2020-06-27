@@ -45,12 +45,7 @@ class User extends BaseController
 		}else{
 			$status = ['status'=>'danger','msg'=>$validation->getErrors()['title']];
 		}
-		return redirect()->back()->with('status',[
-			'role_edit' => [
-				'status'=>$status['status'],
-				'msg'=>$status['msg']
-			]
-		]);
+		return redirect_with('role_edit',$status['status'],$status['msg']);
 	}
 
 	public function role_delete($id)
@@ -58,12 +53,7 @@ class User extends BaseController
 		$status = $this->UserModel->setTable('user_role')->delete($id);
 		if($status)
 		{
-			return redirect()->back()->with('status',[
-				'role_list' => [
-					'status'=>'success',
-					'msg'=>'Data deleted successfully'
-				]
-			]);
+			return redirect_with('role_list');
 		}
 	}
 	public function role_multi_delete()
@@ -71,12 +61,7 @@ class User extends BaseController
 		$status = $this->UserModel->setTable('user_role')->delete($this->request->getPost('del_row'));
 		if($status)
 		{
-			return redirect()->back()->with('status',[
-				'role_list' => [
-					'status'=>'success',
-					'msg'=>'Data deleted successfully'
-				]
-			]);
+			return redirect_with('role_list');
 		}
 	}
 	public function role_detail($id)

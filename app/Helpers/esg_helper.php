@@ -37,3 +37,19 @@ if(!function_exists('msg'))
 		}
 	}
 }
+
+if(!function_exists('redirect_with'))
+{
+	function redirect_with($title = '', $status = 'success',$msg = 'Data Deleted Successfully')
+	{
+		if(!empty($title))
+		{
+			return redirect()->back()->with('status',[
+				$title => [
+					'status'=>$status,
+					'msg'=>$msg
+				]
+			]);
+		}
+	}
+}

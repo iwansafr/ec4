@@ -42,3 +42,4 @@
 		});
 	});
 </script>
+<script src="/assets/modules/menu/script.js"></script>

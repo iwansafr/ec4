@@ -13,7 +13,7 @@
       ?>
       <div class="form-group">
         <label>Title</label>
-        <input type="text" name="title" class="form-control" placeholder="Enter Menu Name" required>
+        <input type="text" name="name" class="form-control" placeholder="Enter Menu Name" required>
       </div>
     </div>
     <div class="card-footer">

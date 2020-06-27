@@ -10,7 +10,7 @@
       msg($status['status'],$status['msg']);
     }
     ?>
-    <form action="/user/role/multi_delete" method="post">
+    <form action="/menu/multi_delete" method="post">
       <table class="data_table table table-bordered table-striped">
         <thead>
         <tr>
@@ -66,16 +66,8 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>Title</label>
-            <input type="text" name="title" class="form-control" placeholder="Enter user role title" required>
-          </div>
-          <div class="form-group">
-            <label>Level</label>
-            <input type="number" name="level" class="form-control" placeholder="Enter role level" min="1" max="100" required>
-          </div>
-          <div class="form-group">
-            <label>Description</label>
-            <textarea name="description" cols="30" rows="5" class="form-control" placeholder="Enter user role description" required></textarea>
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" placeholder="Enter user role title" required>
           </div>
         </div>
         <div class="modal-footer justify-content-between">

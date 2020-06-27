@@ -25,4 +25,21 @@ $(document).ready(function(){
 				break;
 		}
 	}
+
 });
+function edit_modal(class_name, detail_link, action_link){
+	$(document).on('click',class_name,function() {
+	  var id = $(this).data('id');
+	  console.log(id);
+	  $.getJSON(detail_link+id, function(result){
+	  	var modal = $('#modal-default');
+	  	modal.find('form').attr('action',action_link+id);
+	    $.each(result, function(i, field){
+	      modal.find('input[name="'+i+'"]').val(field);
+	      if(i=='description'){
+	      	modal.find('textarea[name="'+i+'"]').html(field);
+	      }
+	    });
+	  });
+	});
+}

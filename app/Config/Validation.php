@@ -55,4 +55,14 @@ class Validation
 			'is_unique' => 'Sorry. That Username Has Been Taken. Please Choose Another'
 		]
 	];
+
+	//Menu Validation
+	public $menu = [
+		'name' => 'required|is_unique[menu.name]'
+	];
+	public $menu_errors = [
+		'name' => [
+			'is_unique' => 'Sory, That Name Has Been Taken, Please Choose Another'
+		]
+	];
 }

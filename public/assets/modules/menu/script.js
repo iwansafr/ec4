@@ -1,0 +1,1 @@
+edit_modal('.edit_menu','/menu/detail/','/menu/');
